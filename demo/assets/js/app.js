@@ -268,31 +268,44 @@ var show_puzzle = function(puzzle, refresh){
     display_puzzle(boards[puzzle]);
 }
 
-var display_puzzle = function(board, highlight){
-    /* Display a Sudoku puzzle on the board, optionally highlighting the new
-    values, with green if `highlight` is set. Additionally do not disable the
-    new value squares.
-    */
-    for(var r = 0; r < 9; ++r){
-        for(var c = 0; c < 9; ++c){
+
+
+var display_puzzle = function(board, highlight) {
+    var symbolMapping = {
+        1: "⬒",
+        2: "⬓",
+        3: "⬔",
+        4: "⬕",
+        5: "⬖",
+        6: "⬗",
+        7: "⬘",
+        8: "⬙",
+        9: "⬚"
+    };
+
+    for (var r = 0; r < 9; ++r) {
+        for (var c = 0; c < 9; ++c) {
             var $square = $(BOARD_SEL + " input#row" + r + "-col" + c);
             $square.removeClass("green-text");
             $square.attr("disabled", "disabled");
-            if(board[r][c] != sudoku.BLANK_CHAR){
+
+            if (board[r][c] !== sudoku.BLANK_CHAR) {
                 var board_val = board[r][c];
                 var square_val = $square.val();
-                if(highlight && board_val != square_val){
+                if (highlight && board_val !== square_val) {
                     $square.addClass("green-text");
                 }
-                $square.val(board_val);
+
+                $square.val(symbolMapping[board_val]);
             } else {
                 $square.val('');
             }
-            // Fire off a change event on the square
+
             $square.change();
         }
     }
 };
+
 
 var get_tab = function(){
     /* Return the name of the currently-selected tab
