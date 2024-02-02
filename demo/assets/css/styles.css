@@ -1,6 +1,10 @@
 /* Styles for the Sudoku.js demo page
 */
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     padding-top: 60px;
     padding-bottom: 40px;
@@ -21,12 +25,15 @@ body {
 }
 #sudoku-board {
     border: 5px solid black;
+    width: 610px;
+    height: 610px;
     
 }
 
 #sudoku-board td {
-    padding: 0px;
+    padding: 2px;
     margin: 0px;
+    background-color: white;
 }
 
 #sudoku-board input.square {
