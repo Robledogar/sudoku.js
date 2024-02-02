@@ -272,15 +272,15 @@ var show_puzzle = function(puzzle, refresh){
 
 var display_puzzle = function(board, highlight) {
     var symbolMapping = {
-        1: "⬒",
-        2: "⬓",
-        3: "⬔",
-        4: "⬕",
-        5: "⬖",
-        6: "⬗",
-        7: "⬘",
-        8: "⬙",
-        9: "⬚"
+        1: "༡",
+        2: "༢",
+        3: "༣",
+        4: "༤",
+        5: "༥",
+        6: "༦",
+        7: "༧",
+        8: "༨",
+        9: "༩"
     };
 
     for (var r = 0; r < 9; ++r) {
